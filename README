@@ -1,0 +1,54 @@
+/* Copyright (c) 2012, Heng.Wang. All rights reserved.
+
+ This program is aimed to monitor the cgroup like iostat for each group,
+ if you have more effective processing methods or some ideas to solve
+ the problem, thanks for your sharing with the developers. It's pleasure
+ for you to contact me.
+
+ @Author: Heng.Wang
+ @Date  : 11/07/2012
+ @Email : heng.wang@qunar.com
+ wangheng.king@gmail.com
+ king_wangheng@163.com
+ @Github: https://github.com/HengWang/
+ @Blog  : http://hengwang.blog.chinaunix.net
+ */
+ 
+ CGSysstat is a monitor toolkits for cgroup, all of these tools are based 
+ on libcgroup library.
+ 
+ 1. How to install the toolkits?
+ 	The dependency of the CGSysstat is based on libcgroup, so before to 
+ install the toolkits, first to install the libcgroup and libcgroup-devel
+ library.
+ 		yum install libcgroup
+ 		yum install libcgroup-devel
+ 		
+ 	Download the source tar pakage and extract the files, then compile the 
+ source and install the toolkits.
+ 		cmake.
+ 		make & make install
+ 
+ 2. How to use the toolkits?
+ 
+ ------------------------------  cgiostat  ------------------------------
+ 
+ 	Cgiostat is like the system tool iostat to display the io statistics
+ information and cpu statistics information, the display format is like 
+ the iostat output.
+ 
+ Usage:
+ 	cgiostat [-h] [[-c] [-g] <group_name>] [-t] [-k] [-m] <INTERVEL> <COUNT>
+ Options:	
+	-c                Display utilization of cpu.
+	-g <group1,...>   Display the io utilization of group named <group_name>. 
+	-t                Display the timestamp. 
+	-k                Display the status in KB/s.
+	-m                Display the status in MB/s.
+	-h                Display this help.
+	-x                Display the extend information. 
+	INTERVEL          The interval time of display.
+	COUNT             The count of display.
+
+ If not given the -g option, list all cgroups information.
+ 
